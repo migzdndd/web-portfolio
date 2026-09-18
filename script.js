@@ -54,6 +54,18 @@ const projects = [
     visual: "portfolio",
     detailsTitle: "What this project demonstrates",
     details: ["Responsive navigation", "Active section tracking", "Skill filtering", "Keyboard-accessible controls", "Reduced-motion support", "GitHub Pages compatibility"]
+  },
+  {
+    title: "MFC Youth Area Management System (Web)",
+    type: "Web Application / Management System",
+    status: "In Development",
+    description: "The web-based counterpart to the MFC Youth Area Management System, transitioning the desktop architecture into a modern, accessible web platform.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    github: "https://github.com/migzdndd/MFC-Youth-Area-Management-System-Web",
+    featured: false,
+    visual: "portfolio",
+    detailsTitle: "Project focus",
+    details: ["Platform independence", "Responsive UI", "Modern web standards", "Preparing for backend integration"]
   }
 ];
 
