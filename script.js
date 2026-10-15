@@ -2,9 +2,12 @@ const skills = [
   { name: "HTML", symbol: "<>", categories: ["frontend"], status: "Using in projects", note: "Semantic structure, accessibility, forms, and maintainable page markup." },
   { name: "CSS", symbol: "#{}", categories: ["frontend"], status: "Currently improving", note: "Responsive layouts, Grid, Flexbox, custom properties, transitions, and animations." },
   { name: "JavaScript", symbol: "JS", categories: ["frontend", "programming"], status: "Currently improving", note: "DOM interaction, event handling, browser APIs, and practical frontend behavior." },
+  { name: "TypeScript", symbol: "TS", categories: ["frontend", "programming"], status: "Using in projects", note: "Type safety, robust interfaces, and maintainable application code in React." },
+  { name: "React", symbol: "R", categories: ["frontend", "programming"], status: "Using in projects", note: "Component architecture, single-page PWAs, role guards, and dynamic UI state." },
+  { name: "Tailwind CSS", symbol: "TW", categories: ["frontend"], status: "Using in projects", note: "Utility-first design and liturgical dark/light aesthetics in modern web applications." },
   { name: "Responsive Design", symbol: "RWD", categories: ["frontend"], status: "Using in projects", note: "Layouts that reorganize for mobile, tablet, and desktop rather than simply shrinking." },
-  { name: "Tailwind CSS", symbol: "TW", categories: ["frontend", "learning"], status: "Currently learning", note: "Exploring utility-first styling while keeping this portfolio intentionally framework-free." },
-  { name: "React", symbol: "R", categories: ["frontend", "learning", "programming"], status: "Currently learning", note: "Developing familiarity with component-based frontend development." },
+  { name: "Supabase & PostgreSQL", symbol: "PG", categories: ["programming", "tools"], status: "Using in projects", note: "Cloud PostgreSQL database, Row Level Security (RLS) across 13 tables, and 22 SQL migrations." },
+  { name: "Node.js Serverless", symbol: "NJ", categories: ["programming", "tools"], status: "Using in projects", note: "Vercel serverless micro-handlers (/api/router.js), IP rate-limiting, and brute-force lockouts." },
   { name: "Next.js", symbol: "N", categories: ["frontend", "learning"], status: "Exploring", note: "Learning how React applications can be structured with a production-focused framework." },
   { name: "UI/UX Basics", symbol: "UI", categories: ["frontend"], status: "Developing knowledge", note: "Hierarchy, spacing, feedback, readability, usability, and interaction clarity." },
   { name: "Forms", symbol: "F", categories: ["frontend"], status: "Practicing", note: "Labels, validation patterns, keyboard usability, and clear error feedback." },
@@ -20,6 +23,25 @@ const skills = [
 
 const projects = [
   {
+    title: "MFC Youth Area Management System (Web)",
+    type: "Cloud Platform / Pastoral Operations & Governance PWA",
+    status: "Active Full-Stack Architecture",
+    description: "A cloud-based pastoral operations and community governance platform engineered for Missionary Families for Christ (MFC) Youth. Built with a React 19 PWA client, Node.js serverless micro-handlers on Vercel, and a Supabase PostgreSQL cloud database hardened with Row Level Security across all 13 tables.",
+    technologies: ["React 19", "TypeScript", "Vite", "Zustand", "Tailwind CSS", "TanStack Query", "Node.js", "Vercel Serverless", "Supabase", "PostgreSQL", "RLS", "TOTP MFA"],
+    github: "https://github.com/migzdndd/MFC-Youth-Area-Management-System-Web",
+    featured: true,
+    visual: "cloud-ams",
+    detailsTitle: "Architecture & Governance Highlights",
+    details: [
+      "3-Tier Cloud Stack: React 19 PWA, Vercel Serverless API (/api/router.js), and Supabase PostgreSQL across 22 incremental SQL migrations",
+      "4-Tier RBAC: Area Leadership (Tier 1), Domain Moderators (LIT, Campus, High, Kids - Tier 2), Chapter Servants (Tier 3), and Youth Members (Tier 4)",
+      "Youth Member Roster & Pastoral Profiles: Ages 13–21 & Heartchamps transition, emergency contacts, youth camps, and academic tracks",
+      "Gatherings, Stewardship & Liturgy: Multi-mode event fee collection (Cash/GCash/Bank), GIG offerings ledger, assembly audit reports, and daily mass readings",
+      "SecDevOps Hardening: Enforced Row Level Security on all 13 tables, sliding-window IP rate limiting, brute-force lockouts, and TOTP MFA"
+    ],
+    hasModal: true
+  },
+  {
     title: "MFC Youth Area Management System",
     type: "Desktop Application / Management System",
     status: "Public Beta v1.0.0 · Actively Improving",
@@ -29,7 +51,8 @@ const projects = [
     featured: true,
     visual: "desktop",
     detailsTitle: "Planned next steps",
-    details: ["Cloud synchronization", "Reports and analytics", "Backup and restore", "User authentication", "Performance and quality-of-life improvements"]
+    details: ["Cloud synchronization", "Reports and analytics", "Backup and restore", "User authentication", "Performance and quality-of-life improvements"],
+    hasModal: false
   },
   {
     title: "MyTale Asia Development",
@@ -41,7 +64,8 @@ const projects = [
     featured: false,
     visual: "server",
     detailsTitle: "Areas involved",
-    details: ["Configuration management", "Modded server environments", "Permissions and whitelisting", "Structured repository files", "Collaborative development"]
+    details: ["Configuration management", "Modded server environments", "Permissions and whitelisting", "Structured repository files", "Collaborative development"],
+    hasModal: false
   },
   {
     title: "Personal Portfolio Website",
@@ -53,19 +77,8 @@ const projects = [
     featured: false,
     visual: "portfolio",
     detailsTitle: "What this project demonstrates",
-    details: ["Responsive navigation", "Active section tracking", "Skill filtering", "Keyboard-accessible controls", "Reduced-motion support", "GitHub Pages compatibility"]
-  },
-  {
-    title: "MFC Youth Area Management System (Web)",
-    type: "Web Application / Management System",
-    status: "In Development",
-    description: "The web-based counterpart to the MFC Youth Area Management System, transitioning the desktop architecture into a modern, accessible web platform.",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-    github: "https://github.com/migzdndd/MFC-Youth-Area-Management-System-Web",
-    featured: false,
-    visual: "portfolio",
-    detailsTitle: "Project focus",
-    details: ["Platform independence", "Responsive UI", "Modern web standards", "Preparing for backend integration"]
+    details: ["Responsive navigation", "Active section tracking", "Skill filtering", "Keyboard-accessible controls", "Reduced-motion support", "GitHub Pages compatibility"],
+    hasModal: false
   }
 ];
 
@@ -101,6 +114,60 @@ function renderSkills() {
 }
 
 function projectVisual(type) {
+  if (type === "cloud-ams") {
+    return `
+      <div class="cloud-ams-visual" aria-hidden="true">
+        <div class="ams-terminal-bar">
+          <span class="ams-terminal-dots"><i></i><i></i><i></i></span>
+          <span class="ams-terminal-title">mfc-ams-cloud // v2.0-pwa</span>
+          <span class="ams-badge-live">● SUPABASE PROD</span>
+        </div>
+        <div class="ams-visual-content">
+          <div class="ams-stack-flow">
+            <div class="ams-tier-card tier-pwa">
+              <span class="tier-label">CLIENT PWA</span>
+              <strong>React 19 + Vite</strong>
+              <p>TypeScript · Zustand · Tailwind</p>
+            </div>
+            <div class="ams-flow-indicator">
+              <span class="flow-line"></span>
+              <span class="flow-pill">REST / JSON</span>
+            </div>
+            <div class="ams-tier-card tier-api">
+              <span class="tier-label">VERCEL API</span>
+              <strong>Node.js Router</strong>
+              <p>Micro-handlers · Rate-Limit</p>
+            </div>
+            <div class="ams-flow-indicator">
+              <span class="flow-line"></span>
+              <span class="flow-pill">PostgreSQL Wire</span>
+            </div>
+            <div class="ams-tier-card tier-db">
+              <span class="tier-label">SUPABASE CLOUD</span>
+              <strong>PostgreSQL DB</strong>
+              <p>13 Tables RLS · 22 Migrations</p>
+            </div>
+          </div>
+          <div class="ams-stats-grid">
+            <div class="ams-stat">
+              <span class="stat-name">ACCESS CONTROL</span>
+              <span class="stat-value">4-Tier Scoped RBAC</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="ams-stat">
+              <span class="stat-name">SECURITY</span>
+              <span class="stat-value">TOTP MFA + Lockout</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="ams-stat">
+              <span class="stat-name">DATA AUDIT</span>
+              <span class="stat-value">Liturgical &amp; Pastoral</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
   if (type === "desktop") {
     return `<div class="visual-window" aria-hidden="true"><div class="visual-window-bar"><i></i><i></i><i></i></div><div class="visual-window-body"><span class="accent-line"></span><span></span><span class="short-line"></span><div class="metric-row"><b></b><b></b><b></b></div><span></span></div></div>`;
   }
@@ -128,6 +195,7 @@ function renderProjects() {
         <ul class="tech-list" aria-label="Technologies used">${project.technologies.map(tech => `<li>${tech}</li>`).join("")}</ul>
         <div class="project-actions">
           <a href="${project.github}" target="_blank" rel="noopener noreferrer" aria-label="View ${project.title} repository on GitHub">View Repository <span aria-hidden="true">↗</span></a>
+          ${project.hasModal ? `<button class="button-project-detail" id="openAmsModalBtn" type="button" aria-haspopup="dialog" aria-controls="projectModal">System Architecture &amp; Specs <span aria-hidden="true">⚙</span></button>` : ""}
         </div>
       </div>
     </article>
@@ -209,6 +277,52 @@ function updateScrollUI() {
 
 window.addEventListener("scroll", updateScrollUI, { passive: true });
 window.addEventListener("resize", () => { if (window.innerWidth > 780) setMenuState(false); });
+function setupProjectModal() {
+  const modal = document.querySelector("#projectModal");
+  if (!modal) return;
+
+  const openBtn = document.querySelector("#openAmsModalBtn");
+  const closeBtn = document.querySelector("#modalCloseBtn");
+  const bottomCloseBtn = document.querySelector("#modalBottomCloseBtn");
+
+  const openModal = () => {
+    modal.showModal();
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    modal.close();
+    document.body.style.overflow = "";
+  };
+
+  if (openBtn) {
+    openBtn.addEventListener("click", openModal);
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+  if (bottomCloseBtn) {
+    bottomCloseBtn.addEventListener("click", closeModal);
+  }
+
+  modal.addEventListener("close", () => {
+    document.body.style.overflow = "";
+  });
+
+  // Light dismiss on backdrop click
+  modal.addEventListener("click", (e) => {
+    const dialogDimensions = modal.getBoundingClientRect();
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+      closeModal();
+    }
+  });
+}
+
 backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
 renderSkills();
@@ -216,5 +330,6 @@ renderProjects();
 renderSocialLinks();
 setupSkillFilters();
 setupRevealAnimations();
+setupProjectModal();
 updateScrollUI();
 document.querySelector("#currentYear").textContent = new Date().getFullYear();

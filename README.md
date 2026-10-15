@@ -20,9 +20,10 @@ I built this portfolio to showcase my projects, skills, interests, and progress 
 
 Some of the projects featured in my portfolio include:
 
-- **MFC Youth Area Management System**
-- **MyTale Asia Development**
-- **Personal Portfolio Website**
+- **MFC Youth Area Management System (Web)**: Cloud-based pastoral operations and community governance platform built with React 19, TypeScript, Supabase PostgreSQL, and Vercel serverless micro-handlers.
+- **MFC Youth Area Management System**: Offline desktop management application built with C#, Windows Forms, and SQLite.
+- **MyTale Asia Development**: Game server configuration, structured repository files, and Git-based collaborative development.
+- **Personal Portfolio Website**: Modern responsive developer portfolio highlighting projects, skills, and SecDevOps direction.
 
 I update my portfolio as I build new projects and improve my existing ones.
 

@@ -151,7 +151,7 @@
             <p class="eyebrow"><span>04</span> Projects</p>
             <h2>Real work, different stages.</h2>
           </div>
-          <p>These projects include a public beta desktop application, collaborative server work, and this portfolio itself. Statuses are shown honestly.</p>
+          <p>Featured work includes a cloud-based Supabase/React pastoral management platform, an offline C# desktop app, collaborative server configuration, and responsive frontend systems. Statuses are shown honestly.</p>
         </div>
 
         <div class="projects-layout" id="projectsGrid"></div>
@@ -222,6 +222,156 @@
       </div>
     </div>
   </footer>
+
+  <dialog class="project-modal" id="projectModal" aria-labelledby="modalTitle">
+    <div class="modal-shell">
+      <header class="modal-header">
+        <div>
+          <p class="modal-eyebrow">Cloud Architecture &amp; Governance Specification</p>
+          <h2 id="modalTitle">MFC Youth Area Management System (AMS)</h2>
+          <p class="modal-subtitle">Cloud-based pastoral operations and community governance platform engineered for Missionary Families for Christ (MFC) Youth.</p>
+        </div>
+        <button class="modal-close-button" id="modalCloseBtn" type="button" aria-label="Close dialog">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <section class="modal-section">
+          <h3><span>1. Architectural Stack</span> <span class="badge">3-Tier Cloud</span></h3>
+          <div class="ascii-diagram-wrap" aria-label="Architecture diagram">
+            <pre><code>┌────────────────────────────────────────────────────────┐
+│               Client Application (PWA)                 │
+│         React 19 • TypeScript • Vite • Zustand         │
+│          Tailwind CSS • Lucide Icons • TanStack        │
+└───────────────────────────┬────────────────────────────┘
+                            │ HTTPS / JSON REST
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│            Vercel Serverless Functions API             │
+│            Node.js runtime (/api/router.js)            │
+│       Micro-handlers: auth, members, events, areas     │
+└───────────────────────────┬────────────────────────────┘
+                            │ PostgreSQL Wire / Service Role
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│                 Supabase Cloud Database                │
+│    PostgreSQL • Row Level Security (RLS) on all tables │
+│        Auth Service • Encrypted Session Management     │
+└────────────────────────────────────────────────────────┘</code></pre>
+          </div>
+
+          <div class="stack-cards-grid">
+            <article class="stack-card">
+              <span class="card-tier">Frontend Tier</span>
+              <h4>frontend-react/ (PWA)</h4>
+              <p>Single-Page Progressive Web App with fast client-side routing, offline readiness, role-based view guards, and dark/light liturgical aesthetics. Built with React 19, TypeScript, Vite, Zustand, Tailwind CSS, TanStack Query, and Lucide Icons.</p>
+            </article>
+            <article class="stack-card">
+              <span class="card-tier">API Tier</span>
+              <h4>Backend/ (Vercel Serverless)</h4>
+              <p>Zero-cold-start Node.js micro-handlers grouped by domain (auth, members, chapters, events, services, gig, reports, dev) routed through a consolidated <code>/api/router.js</code> gateway.</p>
+            </article>
+            <article class="stack-card">
+              <span class="card-tier">Database Tier</span>
+              <h4>Supabase Cloud Database</h4>
+              <p>PostgreSQL tracked under <code>Backend/supabase/</code> across 22 incremental SQL migrations. Employs Supabase Auth, encrypted session management, and strict Row Level Security across all 13 production tables.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h3><span>2. 4-Tier Role-Based Access Control (RBAC)</span> <span class="badge">Scoped Governance</span></h3>
+          <div class="rbac-grid">
+            <article class="rbac-card">
+              <span class="rbac-tag">Tier 1 · Full Area Scope</span>
+              <h4>Area Leadership</h4>
+              <p>Comprehensive data visibility across the entire area for top-level coordinators and pastoral mentors.</p>
+              <ul>
+                <li>National Coordinators</li>
+                <li>Area Servants</li>
+                <li>Couple Coordinators</li>
+              </ul>
+            </article>
+            <article class="rbac-card">
+              <span class="rbac-tag">Tier 2 · Ministry Scope</span>
+              <h4>Domain Moderators</h4>
+              <p>Ministry-specialized operational views partitioned by pastoral pillar:</p>
+              <ul>
+                <li><strong>LIT Servant:</strong> 5 Creative pillars (Music, Dance, Graphics, Writing, Production)</li>
+                <li><strong>Campus Servant:</strong> College &amp; Senior High School youth</li>
+                <li><strong>MFC High Servant:</strong> Junior High School youth (Grades 7–10)</li>
+                <li><strong>Area Kids Servant:</strong> Heartchamps transitioning into youth ministry</li>
+              </ul>
+            </article>
+            <article class="rbac-card">
+              <span class="rbac-tag">Tier 3 · Chapter Scope</span>
+              <h4>Chapter Servants</h4>
+              <p>Strictly scoped permissions for community chapter heads, managing chapter member rosters, event check-in, and submitting monthly assembly reports.</p>
+            </article>
+            <article class="rbac-card">
+              <span class="rbac-tag">Tier 4 · Member Portal</span>
+              <h4>Youth Members</h4>
+              <p>Personal pastoral profile portal, gathering check-in confirmation, emergency contact maintenance, and daily liturgical readings.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h3><span>3. Core Functional Modules</span> <span class="badge">Operations</span></h3>
+          <div class="modules-list">
+            <div class="module-item">
+              <h4>Youth Member Roster &amp; Pastoral Profiles</h4>
+              <p>Tracks youth members (ages 13–21 and transitioning Heartchamps). Records emergency contacts, first youth camp attendance, active/inactive statuses, and academic tracks (College, Senior High, Junior High, Heartchamps).</p>
+            </div>
+            <div class="module-item">
+              <h4>Events &amp; Gatherings</h4>
+              <p>Manages youth camps, assemblies, conferences, and service meetings. Includes participant registration, multi-channel payment reconciliation (cash, GCash, bank), fee collection, and manual attendance check-in.</p>
+            </div>
+            <div class="module-item">
+              <h4>Activity Reports &amp; Pastoral Audit</h4>
+              <p>Standardized reporting pipeline where chapter servants submit assembly reports, participant attendance metrics, and pastoral reflections with area-wide audit visibility.</p>
+            </div>
+            <div class="module-item">
+              <h4>GIG (Give It Generously) Stewardship</h4>
+              <p>Dedicated stewardship ledger logging financial offerings, pastoral support funds, and tithes with area-scoped accountability and transparent record-keeping.</p>
+            </div>
+            <div class="module-item" style="grid-column: 1 / -1;">
+              <h4>Daily Scripture Readings</h4>
+              <p>Automated Catholic liturgical daily mass readings feed integrated and dynamically displayed on both member dashboard and public login portals.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h3><span>4. Security &amp; Operational Hardening</span> <span class="badge">SecDevOps</span></h3>
+          <div class="security-list">
+            <div class="sec-card">
+              <h4>Row Level Security (RLS)</h4>
+              <p>Enforced on all 13 PostgreSQL tables (areas, chapters, members, events, reports, etc.) ensuring multi-tenant data segregation at the database engine level.</p>
+            </div>
+            <div class="sec-card">
+              <h4>Rate Limiting &amp; Brute Force Defense</h4>
+              <p>Sliding window IP throttling via <code>rate-limit.js</code> and automatic temporary account lockouts after repeated failed attempts via <code>brute-force.js</code>.</p>
+            </div>
+            <div class="sec-card">
+              <h4>Multi-Factor Authentication (MFA)</h4>
+              <p>Built-in Time-based One-Time Password (TOTP) factor challenge and verification flows for administrative and pastoral servant accounts.</p>
+            </div>
+            <div class="sec-card">
+              <h4>Global Admin Area Switching</h4>
+              <p>National Coordinators and System Developers can switch active area contexts or simulate scoped roles without mutating underlying database records.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="modal-footer">
+        <a href="https://github.com/migzdndd/MFC-Youth-Area-Management-System-Web" target="_blank" rel="noopener noreferrer">
+          View Repository on GitHub <span aria-hidden="true">↗</span>
+        </a>
+        <button class="button-close" id="modalBottomCloseBtn" type="button">Close</button>
+      </footer>
+    </div>
+  </dialog>
 
   <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
   <script src="./script.js"></script>
