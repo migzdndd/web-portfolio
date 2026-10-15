@@ -85,7 +85,7 @@ const projects = [
 const socialLinks = {
   github: { label: "GitHub", username: "migzdndd", url: "https://github.com/migzdndd", symbol: "GH" },
   facebook: { label: "Facebook", username: "Miguel Riovaldez", url: "https://www.facebook.com/migzdndd/", symbol: "FB" },
-  instagram: { label: "Instagram", username: "@migzdnd", url: "https://www.instagram.com/migzdnd/", symbol: "IG" }
+  linkedin: { label: "LinkedIn", username: "Miguel Riovaldez", url: "https://www.linkedin.com/in/miguel-riovaldez-12b9542b4", symbol: "in" }
 };
 
 const skillsGrid = document.querySelector("#skillsGrid");

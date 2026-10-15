@@ -72,7 +72,7 @@ To publish it:
 
 - **GitHub:** https://github.com/migzdndd
 - **Facebook:** https://www.facebook.com/migzdndd/
-- **Instagram:** https://www.instagram.com/migzdnd/
+- **LinkedIn:** https://www.linkedin.com/in/miguel-riovaldez-12b9542b4
 
 ---
 
