@@ -15,6 +15,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="./site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <title>Miguel Riovaldez | IT Student & Developer</title>
 </head>
@@ -27,6 +30,7 @@
       <a class="brand" href="#home" aria-label="Miguel Riovaldez home">
         <span class="brand-mark" aria-hidden="true">MR</span>
         <span class="brand-copy">Miguel Riovaldez</span>
+        <span class="status-pill-badge" title="Seeking 2026 IT internships & entry-level SecDevOps roles"><span class="status-dot-pulse"></span> Available for Hire</span>
       </a>
 
       <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
@@ -61,19 +65,72 @@
           </div>
         </div>
 
-        <aside class="hero-console reveal" aria-label="Profile summary">
+        <aside class="hero-console reveal" aria-label="Interactive developer console">
           <div class="console-head">
-            <span class="console-label">profile.json</span>
-            <span class="status-dot"><i></i> learning_active</span>
+            <div class="console-tabs" role="tablist" aria-label="Console views">
+              <button class="console-tab is-active" id="tabProfile" role="tab" aria-selected="true" aria-controls="panelProfile" type="button">
+                <span class="tab-indicator"></span> profile.json
+              </button>
+              <button class="console-tab" id="tabTerminal" role="tab" aria-selected="false" aria-controls="panelTerminal" type="button">
+                <span class="tab-indicator"></span> terminal.sh
+              </button>
+              <button class="console-tab" id="tabContact" role="tab" aria-selected="false" aria-controls="panelContact" type="button">
+                <span class="tab-indicator"></span> contact.env
+              </button>
+            </div>
+            <span class="status-dot"><i></i> active</span>
           </div>
-          <dl class="profile-data">
-            <div><dt>name</dt><dd>"Miguel Riovaldez"</dd></div>
-            <div><dt>age</dt><dd>22</dd></div>
-            <div><dt>school</dt><dd>"Mapua University"</dd></div>
-            <div><dt>program</dt><dd>"BS Information Technology"</dd></div>
-            <div><dt>direction</dt><dd>"Aspiring SecDevOps"</dd></div>
-            <div><dt>method</dt><dd>"learn by building"</dd></div>
-          </dl>
+
+          <div class="console-body">
+            <!-- Panel 1: Profile JSON -->
+            <div class="console-panel is-active" id="panelProfile" role="tabpanel" aria-labelledby="tabProfile">
+              <dl class="profile-data">
+                <div><dt>name</dt><dd>"Miguel Riovaldez"</dd></div>
+                <div><dt>school</dt><dd>"Mapua University"</dd></div>
+                <div><dt>degree</dt><dd>"BS Information Technology"</dd></div>
+                <div><dt>direction</dt><dd>"Aspiring SecDevOps"</dd></div>
+                <div><dt>core_stack</dt><dd>["Supabase", "React", "C#", "Linux"]</dd></div>
+                <div><dt>method</dt><dd>"build → test → secure"</dd></div>
+                <div><dt>status</dt><dd class="status-highlight">"Open to Internships (2026)"</dd></div>
+              </dl>
+            </div>
+
+            <!-- Panel 2: Interactive Terminal -->
+            <div class="console-panel" id="panelTerminal" role="tabpanel" aria-labelledby="tabTerminal" hidden>
+              <div class="terminal-view">
+                <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">agy --status --verbose</span></div>
+                <div class="terminal-output text-dim">Initializing environment telemetry...</div>
+                <div class="terminal-output"><span class="ok">✓</span> Student: Miguel Riovaldez [Mapua IT]</div>
+                <div class="terminal-output"><span class="ok">✓</span> Competencies: 68 skills verified</div>
+                <div class="terminal-output"><span class="ok">✓</span> Active Architecture: Supabase RLS + Vercel Functions</div>
+                <div class="terminal-output text-dim">System state: Ready for internship deployment.</div>
+                <div class="terminal-actions">
+                  <button class="terminal-btn" id="runDiagBtn" type="button">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <span>Run Ping Test</span>
+                  </button>
+                  <span class="terminal-ping-res" id="terminalPingRes">latency: 14ms (optimal)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Contact ENV -->
+            <div class="console-panel" id="panelContact" role="tabpanel" aria-labelledby="tabContact" hidden>
+              <div class="env-view">
+                <div class="env-line"><span class="env-var">DEVELOPER</span>=<span class="env-val">"Miguel Riovaldez"</span></div>
+                <div class="env-line"><span class="env-var">EMAIL</span>=<span class="env-val">"miguel7riovaldez@gmail.com"</span></div>
+                <div class="env-line"><span class="env-var">LOCATION</span>=<span class="env-val">"Manila, Philippines"</span></div>
+                <div class="env-line"><span class="env-var">GITHUB</span>=<span class="env-val">"github.com/migzdndd"</span></div>
+                <div class="env-actions">
+                  <button class="button-copy-email" id="quickCopyEmailBtn" type="button">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>Copy miguel7riovaldez@gmail.com</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="console-footer">
             <a href="https://github.com/migzdndd" target="_blank" rel="noopener noreferrer">github.com/migzdndd <svg class="icon-external" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
             <a href="#contact">Contact Me <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
@@ -149,6 +206,9 @@
           </div>
 
           <div class="skills-controls">
+            <div class="skills-counter-badge" id="skillsCounterBadge" aria-live="polite">
+              Showing <strong id="skillsCountDisplay">68</strong> of 68 skills
+            </div>
             <div class="skill-search-wrapper">
               <span class="search-icon" aria-hidden="true">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -196,12 +256,26 @@
         <div class="hobby-board reveal">
           <article class="hobby-item hobby-guitar">
             <span class="hobby-index">A1</span>
-            <div><p class="hobby-kicker">Creative outlet</p><h3>Guitar</h3></div>
+            <div>
+              <p class="hobby-kicker">Creative outlet</p>
+              <h3>Guitar</h3>
+            </div>
+            <div class="hobby-media-feature">
+              <div class="equalizer-bars" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <span class="audio-label">Tone &amp; Chords</span>
+            </div>
             <p>I enjoy playing and practicing guitar as something completely separate from technical work. It gives me a slower, more personal way to learn and create.</p>
           </article>
           <article class="hobby-item hobby-gaming">
             <span class="hobby-index">B2</span>
             <div><p class="hobby-kicker">Interactive</p><h3>Gaming</h3></div>
+            <div class="hobby-hud-badge">
+              <span class="hud-pill">FPS: 144</span>
+              <span class="hud-pill">TICK: 64/128</span>
+              <span class="hud-pill">NET: LOW-LATENCY</span>
+            </div>
             <p>Gaming is part entertainment, part curiosity about interactive systems, communities, and the little design decisions that shape an experience.</p>
           </article>
           <article class="hobby-item hobby-content">
@@ -212,11 +286,23 @@
           <article class="hobby-item hobby-video">
             <span class="hobby-index">D4</span>
             <div><p class="hobby-kicker">Visual pacing</p><h3>Video Editing</h3></div>
+            <div class="timeline-mockup" aria-hidden="true">
+              <div class="timeline-track track-video"><span class="clip c1">Intro</span><span class="clip c2">Gameplay</span><span class="clip c3">B-Roll</span></div>
+              <div class="timeline-track track-audio"><span class="clip a1">Audio Waveform</span><span class="clip a2">SFX</span></div>
+              <div class="timeline-playhead"></div>
+            </div>
             <p>I’m developing my editing skills through timing, transitions, combining visuals and audio, and learning what makes short-form content feel smooth.</p>
           </article>
           <article class="hobby-item hobby-design">
             <span class="hobby-index">E5</span>
             <div><p class="hobby-kicker">Visual thinking</p><h3>Graphic Design</h3></div>
+            <div class="swatch-palette" aria-label="Portfolio theme palette">
+              <button class="swatch-btn" type="button" data-color="#80e7c4" style="--swatch-color: #80e7c4;" title="Click to copy #80e7c4"></button>
+              <button class="swatch-btn" type="button" data-color="#8fb8ff" style="--swatch-color: #8fb8ff;" title="Click to copy #8fb8ff"></button>
+              <button class="swatch-btn" type="button" data-color="#131920" style="--swatch-color: #131920;" title="Click to copy #131920"></button>
+              <button class="swatch-btn" type="button" data-color="#0a0d11" style="--swatch-color: #0a0d11;" title="Click to copy #0a0d11"></button>
+              <span class="swatch-hint">Click swatch to copy hex</span>
+            </div>
             <p>I enjoy experimenting with layout, social graphics, branding ideas, and Canva. It also makes me more aware of spacing, hierarchy, and visual balance in UI work.</p>
           </article>
         </div>
@@ -405,6 +491,8 @@
   <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </button>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
   <script src="./script.js"></script>
 </body>
 </html>

@@ -550,6 +550,13 @@ const projects = [
 ];
 
 const socialLinks = {
+  email: {
+    label: "Direct Email",
+    username: "miguel7riovaldez@gmail.com",
+    url: "mailto:miguel7riovaldez@gmail.com",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>`,
+    isEmail: true
+  },
   github: {
     label: "GitHub",
     username: "migzdndd",
@@ -620,7 +627,7 @@ function projectVisual(type) {
         <div class="ams-terminal-bar">
           <span class="ams-terminal-dots"><i></i><i></i><i></i></span>
           <span class="ams-terminal-title">mfc-ams-cloud // v2.0-pwa</span>
-          <span class="ams-badge-live">● SUPABASE PROD</span>
+          <span class="ams-badge-live"><span class="pulse-dot"></span> SUPABASE PROD</span>
         </div>
         <div class="ams-visual-content">
           <div class="ams-stack-flow">
@@ -630,7 +637,7 @@ function projectVisual(type) {
               <p>TypeScript · Zustand · Tailwind</p>
             </div>
             <div class="ams-flow-indicator">
-              <span class="flow-line"></span>
+              <span class="flow-line animated-flow"></span>
               <span class="flow-pill">REST / JSON</span>
             </div>
             <div class="ams-tier-card tier-api">
@@ -639,7 +646,7 @@ function projectVisual(type) {
               <p>Micro-handlers · Rate-Limit</p>
             </div>
             <div class="ams-flow-indicator">
-              <span class="flow-line"></span>
+              <span class="flow-line animated-flow"></span>
               <span class="flow-pill">PostgreSQL Wire</span>
             </div>
             <div class="ams-tier-card tier-db">
@@ -669,12 +676,73 @@ function projectVisual(type) {
     `;
   }
   if (type === "desktop") {
-    return `<div class="visual-window" aria-hidden="true"><div class="visual-window-bar"><i></i><i></i><i></i></div><div class="visual-window-body"><span class="accent-line"></span><span></span><span class="short-line"></span><div class="metric-row"><b></b><b></b><b></b></div><span></span></div></div>`;
+    return `
+      <div class="visual-window desktop-pos-window" aria-hidden="true">
+        <div class="visual-window-bar">
+          <div class="window-controls"><i></i><i></i><i></i></div>
+          <span class="window-title">ims-desktop.exe // C# .NET Forms</span>
+          <span class="window-badge-offline">OFFLINE READY</span>
+        </div>
+        <div class="desktop-preview-body">
+          <div class="desktop-kpi-grid">
+            <div class="desktop-kpi"><span class="kpi-label">INVENTORY</span><strong>1,420 SKUs</strong></div>
+            <div class="desktop-kpi"><span class="kpi-label">SALES ORDERS</span><strong>384 Logged</strong></div>
+            <div class="desktop-kpi"><span class="kpi-label">DATABASE</span><strong>Local SQLite</strong></div>
+          </div>
+          <div class="desktop-table-preview">
+            <div class="tbl-head"><span>ID</span><span>ITEM DESCRIPTION</span><span>QTY</span><span>STATUS</span></div>
+            <div class="tbl-row"><span>#1044</span><span>HARDWARE-RAM-16G</span><span>×2</span><span class="tag-ok">LOGGED</span></div>
+            <div class="tbl-row"><span>#1045</span><span>STORAGE-NVME-1TB</span><span>×1</span><span class="tag-ok">LOGGED</span></div>
+            <div class="tbl-row"><span>#1046</span><span>CABLE-CAT6-10M</span><span>×10</span><span class="tag-ok">LOGGED</span></div>
+          </div>
+        </div>
+      </div>
+    `;
   }
   if (type === "server") {
-    return `<div class="server-visual" aria-hidden="true"><p>$ server.status</p><p class="ok">✓ collaborative environment active</p><p>mods/ permissions/ config/ whitelist/</p><p>git: structured repository workflow</p></div>`;
+    return `
+      <div class="server-visual-enhanced" aria-hidden="true">
+        <div class="server-head">
+          <span class="server-status-dot"><i></i> srv-collab-01.local</span>
+          <span class="server-uptime">UPTIME: 99.9%</span>
+        </div>
+        <div class="server-metrics-row">
+          <div class="server-metric-item">
+            <div class="metric-head"><span>MEMORY</span><strong>6.2 / 16 GB</strong></div>
+            <div class="metric-bar"><span style="width: 38%;"></span></div>
+          </div>
+          <div class="server-metric-item">
+            <div class="metric-head"><span>CPU LOAD</span><strong>18%</strong></div>
+            <div class="metric-bar"><span style="width: 18%;"></span></div>
+          </div>
+        </div>
+        <div class="server-log-box">
+          <p class="log-line"><span class="log-t">[systemd]</span> service active (port 25565)</p>
+          <p class="log-line"><span class="log-t">[ufw]</span> firewall strict rules enforced</p>
+          <p class="log-line ok"><span class="log-t">[git]</span> tracked repository in sync with origin/main</p>
+        </div>
+      </div>
+    `;
   }
-  return `<div class="portfolio-visual" aria-hidden="true">MR<span>.</span>WEB</div>`;
+  return `
+    <div class="portfolio-visual-enhanced" aria-hidden="true">
+      <div class="portfolio-head">
+        <span class="portfolio-badge-pill">LIGHTHOUSE AUDIT: 100/100</span>
+        <span class="portfolio-tech-tag">VANILLA ES6+</span>
+      </div>
+      <div class="lighthouse-scores-grid">
+        <div class="lh-metric"><span class="lh-score">100</span><span class="lh-name">PERF</span></div>
+        <div class="lh-metric"><span class="lh-score">100</span><span class="lh-name">A11Y</span></div>
+        <div class="lh-metric"><span class="lh-score">100</span><span class="lh-name">BEST PRACTICES</span></div>
+        <div class="lh-metric"><span class="lh-score">100</span><span class="lh-name">SEO</span></div>
+      </div>
+      <div class="portfolio-vitals-row">
+        <span>Zero Dependencies</span>
+        <span>&lt; 50 KB Transfer</span>
+        <span>Semantic HTML5</span>
+      </div>
+    </div>
+  `;
 }
 
 function renderProjects() {
@@ -704,14 +772,37 @@ function renderProjects() {
 
 function renderSocialLinks() {
   socialLinksContainer.innerHTML = Object.values(socialLinks).map(social => `
-    <a class="social-card" href="${social.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${social.label} profile for ${social.username}">
-      <span class="social-icon" aria-hidden="true">${social.icon}</span>
-      <span><strong>${social.label}</strong><span>${social.username}</span></span>
-      <span class="social-arrow" aria-hidden="true">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-      </span>
-    </a>
+    <div class="social-card ${social.isEmail ? "social-card-email" : ""}">
+      <a class="social-main-link" href="${social.url}" ${social.isEmail ? "" : 'target="_blank" rel="noopener noreferrer"'} aria-label="Open ${social.label} for ${social.username}">
+        <span class="social-icon" aria-hidden="true">${social.icon}</span>
+        <span><strong>${social.label}</strong><span>${social.username}</span></span>
+      </a>
+      <div class="social-card-actions">
+        ${social.isEmail ? `
+          <button class="social-copy-btn" type="button" data-copy-email="${social.username}" title="Copy email address" aria-label="Copy email address">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy</span>
+          </button>
+        ` : `
+          <a class="social-arrow" href="${social.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${social.label} link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        `}
+      </div>
+    </div>
   `).join("");
+
+  document.querySelectorAll("[data-copy-email]").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const email = btn.dataset.copyEmail;
+      navigator.clipboard.writeText(email).then(() => {
+        showToast(`Copied ${email} to clipboard!`, "success");
+      }).catch(() => {
+        showToast(`Email: ${email}`, "info");
+      });
+    });
+  });
 }
 
 let activeSkillFilter = "all";
@@ -746,6 +837,11 @@ function applySkillFiltering() {
     pill.classList.toggle("is-hidden", !isVisible);
     if (isVisible) visibleBadges++;
   });
+
+  const countDisplay = document.querySelector("#skillsCountDisplay");
+  if (countDisplay) {
+    countDisplay.textContent = visibleCards;
+  }
 
   const emptyCards = document.querySelector("#skillsEmptyCards");
   const emptyBadges = document.querySelector("#skillsEmptyBadges");
@@ -784,6 +880,26 @@ function setupSkillFilters() {
       });
       applySkillFiltering();
     });
+  });
+
+  // Calculate and display category counts on filter buttons
+  const catCounts = { all: skills.length };
+  skills.forEach(skill => {
+    skill.categories.forEach(cat => {
+      catCounts[cat] = (catCounts[cat] || 0) + 1;
+    });
+  });
+
+  filterButtons.forEach(btn => {
+    const filter = btn.dataset.skillFilter;
+    const count = catCounts[filter] || 0;
+    let badge = btn.querySelector(".filter-count");
+    if (!badge) {
+      badge = document.createElement("span");
+      badge.className = "filter-count";
+      btn.appendChild(badge);
+    }
+    badge.textContent = count;
   });
 
   const searchInput = document.querySelector("#skillSearchInput");
@@ -905,6 +1021,87 @@ function setupProjectModal() {
   });
 }
 
+function showToast(message, type = "info") {
+  const container = document.querySelector("#toastContainer");
+  if (!container) return;
+  const toast = document.createElement("div");
+  toast.className = `toast-item toast-${type}`;
+  toast.innerHTML = `
+    <span class="toast-icon">${type === "success" ? "✓" : "ℹ"}</span>
+    <span class="toast-message">${message}</span>
+  `;
+  container.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add("is-visible"));
+  setTimeout(() => {
+    toast.classList.remove("is-visible");
+    setTimeout(() => toast.remove(), 250);
+  }, 2600);
+}
+
+function setupConsoleTabs() {
+  const tabs = [
+    { btn: document.querySelector("#tabProfile"), panel: document.querySelector("#panelProfile") },
+    { btn: document.querySelector("#tabTerminal"), panel: document.querySelector("#panelTerminal") },
+    { btn: document.querySelector("#tabContact"), panel: document.querySelector("#panelContact") }
+  ];
+
+  tabs.forEach(({ btn, panel }) => {
+    if (!btn || !panel) return;
+    btn.addEventListener("click", () => {
+      tabs.forEach(t => {
+        const isCurrent = t.btn === btn;
+        t.btn.classList.toggle("is-active", isCurrent);
+        t.btn.setAttribute("aria-selected", String(isCurrent));
+        if (t.panel) {
+          t.panel.classList.toggle("is-active", isCurrent);
+          t.panel.hidden = !isCurrent;
+        }
+      });
+    });
+  });
+
+  const pingBtn = document.querySelector("#runDiagBtn");
+  const pingRes = document.querySelector("#terminalPingRes");
+  if (pingBtn && pingRes) {
+    pingBtn.addEventListener("click", () => {
+      pingRes.textContent = "probing edge gateways...";
+      pingRes.classList.add("is-pinging");
+      setTimeout(() => {
+        const rtt = Math.floor(Math.random() * 8) + 11;
+        pingRes.textContent = `latency: ${rtt}ms (optimal) · 0% loss`;
+        pingRes.classList.remove("is-pinging");
+        showToast(`System ping complete: ${rtt}ms round-trip`, "success");
+      }, 550);
+    });
+  }
+
+  const copyEmailBtn = document.querySelector("#quickCopyEmailBtn");
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText("miguel7riovaldez@gmail.com").then(() => {
+        showToast("Copied miguel7riovaldez@gmail.com to clipboard!", "success");
+      }).catch(() => {
+        showToast("Email: miguel7riovaldez@gmail.com", "info");
+      });
+    });
+  }
+}
+
+function setupInteractiveHobbies() {
+  document.querySelectorAll(".swatch-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const color = btn.dataset.color;
+      if (color) {
+        navigator.clipboard.writeText(color).then(() => {
+          showToast(`Copied color ${color} to clipboard!`, "success");
+        }).catch(() => {
+          showToast(`Color: ${color}`, "info");
+        });
+      }
+    });
+  });
+}
+
 backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
 renderSkills();
@@ -913,5 +1110,7 @@ renderSocialLinks();
 setupSkillFilters();
 setupRevealAnimations();
 setupProjectModal();
+setupConsoleTabs();
+setupInteractiveHobbies();
 updateScrollUI();
 document.querySelector("#currentYear").textContent = new Date().getFullYear();
